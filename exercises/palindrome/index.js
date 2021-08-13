@@ -6,6 +6,7 @@
 // --- Examples:
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
+// test
 
 function palindrome(str) {
   
