@@ -14,14 +14,13 @@
 
 function fizzBuzz(n) {
   for (let i = 1; i <= n; i++) {
+    // answer variable that will change throughout the iteration
   	let answer = ''
   	if (i % 5 === 0 && i % 3 === 0) {
     	answer = 'fizzbuzz';
-    }
-    else if ( i % 3 === 0) {
+    } else if ( i % 3 === 0) {
     	answer = 'fizz';
-    }
-    else if ( i % 5 === 0) {
+    } else if ( i % 5 === 0) {
     	answer = 'buzz';
     }
     console.log(answer || i)
