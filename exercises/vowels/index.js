@@ -11,11 +11,20 @@ function vowels (s) {
   const vowels = ['a', 'e', 'i', 'o', 'u']
   let count = 0;
 
-  for (let letter of s.toLowerCase()) {
-  	if (vowels.indexOf(letter) != -1) {
-    	count++
-    }
-  }
-  return count;
+  const matches = s.match(/[aeiou]/gi);
+
+  return matches ? matches.length : 0;
 }
 module.exports = vowels;
+
+// function vowels (s) {
+//   const vowels = ['a', 'e', 'i', 'o', 'u']
+//   let count = 0;
+
+//   for (let letter of s.toLowerCase()) {
+//   	if (vowels.indexOf(letter) != -1) {
+//     	count++
+//     }
+//   }
+//   return count;
+// }
