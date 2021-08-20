@@ -16,6 +16,7 @@
 //     [10,  9,  8, 7]]
 
 function matrix(n) {
+  //todo study this!!
   const results = [];
 
   for (let i = 0; i < n; i++) {
