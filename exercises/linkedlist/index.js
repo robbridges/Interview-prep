@@ -74,6 +74,46 @@ class LinkedList {
     
     
   }
+
+  insertLast(data) {
+    const last = this.getLast();
+    if(last) {
+      //last exists
+      last.next = new Node(data);
+    } else {
+      //chain is empty
+      this.head = new Node(data);
+    }
+  }
+  getAt(number) {
+    let node = this.head;
+    let counter = 0;
+
+    while (node) {
+      if (counter === number) {
+        return node;
+      }
+      counter++
+      node = node.next;
+      
+    }
+    return null;
+  }
+  removeAt(index) {
+    if (!this.head) {
+      return;
+    }
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+    const previous = this.getAt(index -1);
+    // we need to skip over the node we are "removing" so that the next function looks at the node we do not want to remove.
+    if (!previous || !previous.next) {
+      return;
+    }
+    previous.next = previous.next.next;
+  }
 }
 
 module.exports = { Node, LinkedList };
