@@ -15,7 +15,7 @@ class LinkedList {
   }
 
   insertFirst(data) {
-    this.head = new Node(data, this.head);
+    this.insertAt(data, 0);
   }
 
   size() {
@@ -34,14 +34,16 @@ class LinkedList {
   }
 
   getLast() {
-    let node = this.head;
-    while(node) {
+    // let node = this.head;
+    // while(node) {
       
-      if (node.next === null) {
-        return node;
-      }
-      node = node.next;
-    }
+    //   if (node.next === null) {
+    //     return node;
+    //   }
+    //   node = node.next;
+    // }
+
+    return this.getAt(this.size() -1);
     
   }
   clear() {
@@ -113,6 +115,31 @@ class LinkedList {
       return;
     }
     previous.next = previous.next.next;
+  }
+  insertAt(data, index) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+    /* we need to get the previous node as a refrence, using our getAt method is a great way to do this. We this set the new node to point at at previous next node, 
+    then reassign that value */
+
+    const previous = this.getAt(index - 1) || this.getLast();
+    const node = new Node(data, previous.next);
+    previous.next = node;
+  }
+  forEach(fn) {
+    let node = this.head;
+
+    while(node) {
+      fn (node);
+      node = node.next;
+    }
+    
   }
 }
 
