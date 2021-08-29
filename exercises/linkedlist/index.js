@@ -141,6 +141,15 @@ class LinkedList {
     }
     
   }
+  // we need to create a generator function because we won't know the size of the list. We then start with the first node, and move to the next node, we are using
+  // the generator yield fuction of that node (Basically doing whatever was called for the function) and then moving to the next node
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node) {
+      yield node;
+      node = node.next;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
