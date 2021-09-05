@@ -32,12 +32,23 @@ class Tree {
   constructor() {
     this.root = null;
   }
+  // we simple create an array, and push each node into the array, and it's children, once the array is empty we've iterated over each node in a BF fashion.
   traverseBF(fn) {
     const arr = [this.root];
     while (arr.length) {
       const node = arr.shift();
 
       arr.push(...node.children);
+      fn(node);
+    }
+  }
+  // this example is much the same, we initalize an array with the root node, while this array has a length we add the children to the **FRONT** of the array instead of in the end
+  
+  traverseDF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+      const node = arr.shift();
+      arr.unshift(...node.children);
       fn(node);
     }
   }
